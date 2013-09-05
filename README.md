@@ -11,13 +11,27 @@ Add to your `composer.json`:
     "minimum-stability": "dev",
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/mac2000/migrations_service_provider"
+            "type": "package",
+            "package": {
+                "name": "mac2000/silex_migrations_service_provider",
+                "version": "dev-master",
+                "source": {
+                    "type": "git",
+                    "url": "git://github.com/mac2000/silex_migrations_service_provider.git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "": "src"
+                    }
+                }
+            }
         }
     ],
     "require": {
-        "mac2000/migrations_service_provider": "*"
-    }
+        "silex/silex": "1.*",
+        "mac2000/silex_migrations_service_provider": "dev-master"
+    },
 
 Register Service Provider
 -------------------------
@@ -27,6 +41,20 @@ Register Service Provider
         'migration.namespace' => 'Acme\\Migration', // Namespace where your migration classes can be found, do not forget about slash escaping and do not add last slash
         'migration.directory' => 'src/Acme/Migration' // Directory where your migration classes can be found
     ));
+
+Usage examples
+--------------
+
+    $versions = $app['migration']->getSql();
+    $versions = $app['migration']->migrate();
+
+Migrations Trait
+----------------
+
+    use MigrationsTrait;
+    ...
+    $app->migration()->getSql();
+    $app->migration()->migrate();
 
 Run tests
 ---------
