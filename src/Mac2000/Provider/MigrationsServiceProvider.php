@@ -10,12 +10,16 @@ class MigrationsServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
+        if(!isset($app['migration.outputwriter'])) {
+            $app['migration.outputwriter'] = null;
+        }
+
         $app['migration'] = $app->share(function() use($app){
             return new Migration($app['migration.configuration']);
         });
 
         $app['migration.configuration'] = $app->share(function() use($app){
-            $configuration = new Configuration($app['db']);
+            $configuration = new Configuration($app['db'], $app['migration.outputwriter']);
 
             if(isset($app['migration.table'])) {
                 $configuration->setMigrationsTableName($app['migration.table']);
