@@ -1,0 +1,24 @@
+{
+    "name": "mac2000/silex_migrations_service_provider",
+    "description": "Silex Migrations Service Provider",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Marchenko Alexandr",
+            "email": "marchenko.alexandr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "silex/silex": "1.*",
+        "doctrine/migrations": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}
