@@ -70,3 +70,5 @@ There is `demo` application in source where you can find fully functional applic
 The only thing you need to do is run:
 
     mysql -uroot -proot -e "CREATE DATABASE silex_migrations_service_provider_example"
+
+Migration examples can be found here: `domo/Acme/Migrations/Version*.php`
