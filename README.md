@@ -60,4 +60,13 @@ Run tests
 ---------
 
     vendor/bin/phpunit
+    vendor/bin/phpunit --coverage-html ./report
 
+Demo Application
+----------------
+
+There is `demo` application in source where you can find fully functional application example.
+
+The only thing you need to do is run:
+
+    mysql -uroot -proot -e "CREATE DATABASE silex_migrations_service_provider_example"

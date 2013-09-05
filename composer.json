@@ -14,7 +14,8 @@
         "doctrine/migrations": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "symfony/console": "2.*"
     },
     "autoload": {
         "psr-0": {
